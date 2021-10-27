@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace JamilaBookStore.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : Controller 
     {
         private readonly ILogger<HomeController> _logger;
 
