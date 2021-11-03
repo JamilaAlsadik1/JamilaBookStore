@@ -48,9 +48,56 @@
 
 -I Renamed Models folder to ViewModels
 
--IChange the ErrorViewModels.cs namespace .Models.ViewModels
+-IChanged the ErrorViewModels.cs namespace .Models.ViewModels
 
 -Building Project again.
+
+-Modifying Startup.cs service ‘AddContext’ with the using statement
+
+-Runing the application and review errors.
+
+-Remove the using statement
+
+-Correctinj any default reference to ErrorViewModel to the new .Models.ViewModels.ErrorViewModels
+
+-When all errors are resolved run the application and review the browser presentation.
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+2021-11-03 9:37am
+-In the Utility project, I create a static details class called SD.cs
+
+-I Modified the properties of the class
+
+-I Added project reference to the main project
+
+- In the DataAccess project add project references t o Models and Utility
+
+-I Added a ‘Customers’ area to Areas
+
+-I Changed the routes in Startup.cs like the one outlined in the ScaffoldingReadMe.txt
+
+- Moving the HomeController.cs to the Area > Customer > Controller folder and delete Data and Models.
+
+-Editing the HomeController.cs to explicitly define that the controller is in the Customer Area
+
+-Moving Views > Home and modify the HomeController namespace
+
+-Copying _ViewImport and _ViewStart to Customer Area
+
+-Modifying the _ViewStart.cshtml to reflect the new path.
+
+-Add a new Admin area in Areas
+
+-Add the proper view files and delete the Data and Models folder
+
+-Delete the Controllers folder
+
+-Update the GitHub repo
+
+- got an error in startup file and did solve it .
+
+
+
+
 
 
 
