@@ -7,7 +7,7 @@
 
 -I commented out   @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />*@ in Views/shared/ _layout.cshtml
 
-
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 2021-11-01 11:27am
 - Change the nav class from navbar-light to navbar dark and bg-white to bg-primary in _Layout.cshtml.
 
