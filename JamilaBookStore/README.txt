@@ -95,6 +95,22 @@
 
 - got an error in startup file and did solve it .
 
+//////////////////////////////////////////////////////////////////////////////////
+2021-11-08 12:39pm
+-building the application and confirm there are no errors.
+
+-Reviewing tha appsettings.json.
+
+-Create the migrations (using code-first, where changes are “pushed” to the database), modify the database name and save.
+
+-Using the NuGet Package Manager Console to add the migration (with a meaningful name).
+
+-getting error from migration.
+
+-Changing to the correct default project (.DataAccess) and run again.
+
+-migration file name is 20211108175115_AddDefaultIdentituMigration
+
 
 
 
