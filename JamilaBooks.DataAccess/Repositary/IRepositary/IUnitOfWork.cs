@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace JamilaBooks.DataAccess.Repositary.IRepositary
 {
-    interface UnitOfWork:IDisposable
+    interface IUnitOfWork : IDisposable
     {
         ICategoryRepositary Category { get; }
         ISP_Call SP_Call { get; }

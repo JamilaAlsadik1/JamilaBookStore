@@ -1,5 +1,8 @@
 
 using JamilaBookStore.DataAccess.Data;
+using JamilaBooks.DataAccess.Repositary.IRepositary;
+using JamilaBooks.DataAccess.Repositary;
+using JamilaBooks.DataAccess;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -13,6 +16,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DevExpress.Xpo;
 
 namespace JamilaBookStore
 {
@@ -35,6 +39,7 @@ namespace JamilaBookStore
 
             services.AddDefaultIdentity<IdentityUser>()             // delete options => options.SignIn.RequireConfirmedAccount = true
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddControllersWithViews();
         }
 
@@ -65,13 +70,13 @@ namespace JamilaBookStore
                 endpoints.MapControllerRoute(
                 name: "MyArea",
                 pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
-                //endpoints.MapControllerRoute(
-                //  name: "default",
-                //  pattern: "{areas:Customer}/{controller=Home}/{action=Index}/{id?}");
-                endpoints.MapAreaControllerRoute(
-                    name: "defaultArea",
-                    areaName: "Customer",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+               endpoints.MapControllerRoute(
+                 name: "default",
+                 pattern: "{areas:Customer}/{controller=Home}/{action=Index}/{id?}");
+                //endpoints.MapAreaControllerRoute(
+                   // name: "defaultArea",
+                   // areaName: "Customer",
+                   // pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
         }
