@@ -17,7 +17,9 @@ namespace JamilaBooks.DataAccess.Repositary.IRepositary
             Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null,
             string includeProperties = null             // useful  for foreign key references
             );
-
+        void Add(T entity); // to add an entry
+        void Remove(int id);
+        void RemoveRnge(IEnumerable<T> entity);
        
     }
 }
