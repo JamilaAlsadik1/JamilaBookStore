@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace JamilaBooks.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20211115144946_AddDefualtIdentityMigration")]
-    partial class AddDefualtIdentityMigration
+    [Migration("20211115153836_AddDefualtMigration")]
+    partial class AddDefualtMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

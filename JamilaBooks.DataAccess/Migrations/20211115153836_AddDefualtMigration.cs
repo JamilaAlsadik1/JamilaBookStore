@@ -2,7 +2,7 @@
 
 namespace JamilaBooks.DataAccess.Migrations
 {
-    public partial class AddCategoryToDb : Migration
+    public partial class AddDefualtMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
