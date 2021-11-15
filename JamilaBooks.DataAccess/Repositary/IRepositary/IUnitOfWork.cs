@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace JamilaBooks.DataAccess.Repositary.IRepositary
 {
-    interface IUnitOfWork : IDisposable
+   public interface IUnitOfWork : IDisposable
     {
-        ICategoryRepositary Category { get; }
-        ISP_Call SP_Call { get; }
+       public ICategoryRepositary Category { get; }
+      public  ISP_Call SP_Call { get; }
     }
 }

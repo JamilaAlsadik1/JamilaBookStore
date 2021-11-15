@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 
 namespace JamilaBooks.DataAccess.Repositary.IRepositary
 {
-    interface ICategoryRepositary
+   public interface ICategoryRepositary
     {
         void Ubdate(Category category);
+        object GetAll();
     }
 }

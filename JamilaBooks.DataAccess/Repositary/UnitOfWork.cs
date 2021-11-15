@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace JamilaBooks.DataAccess.Repositary
 {
-    class UnitOfWork
+   public class UnitOfWork:IUnitOfWork
     {
         private readonly ApplicationDbContext _db;
         public UnitOfWork(ApplicationDbContext db)
@@ -21,6 +21,9 @@ namespace JamilaBooks.DataAccess.Repositary
         }
         public CategoryRepositary Category { get; private set; }
         public ISP_Call SP_Call { get; private set; }
+
+        ICategoryRepositary IUnitOfWork.Category => throw new NotImplementedException();
+
         public void Dispose()
         {
             _db.Dispose();

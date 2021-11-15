@@ -9,12 +9,17 @@ using System.Threading.Tasks;
 
 namespace JamilaBooks.DataAccess.Repositary
 {
-    class CategoryRepositary : Repositary<Category>, ICategoryRepositary
+    public class CategoryRepositary : Repositary<Category>, ICategoryRepositary
     {
         private readonly ApplicationDbContext _db;
         public CategoryRepositary(ApplicationDbContext db) : base(db)
         {
             _db = db;
+        }
+
+        public object GetAll()
+        {
+            throw new NotImplementedException();
         }
 
         public void Ubdate(Category category)
