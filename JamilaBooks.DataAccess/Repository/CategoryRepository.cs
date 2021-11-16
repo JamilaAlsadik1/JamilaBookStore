@@ -11,7 +11,7 @@ namespace JamilaBooks.DataAccess.Repository
 {
     public class CategoryRepository : Repository<Category>, ICategoryRepository
     {
-        private readonly ApplicationDbContext _db;
+        private readonly ApplicationDbContext _db; 
         public CategoryRepository(ApplicationDbContext db) : base(db)
         {
             _db = db;
@@ -25,7 +25,7 @@ namespace JamilaBooks.DataAccess.Repository
             if (objFromDb != null)
             {
                 objFromDb.Name = category.Name;
-                _db.SaveChanges();
+                
             }
         }
     }

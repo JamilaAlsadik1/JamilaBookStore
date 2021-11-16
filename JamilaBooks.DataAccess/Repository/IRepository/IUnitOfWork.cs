@@ -11,6 +11,8 @@ namespace JamilaBooks.DataAccess.Repository.IRepository
    public interface IUnitOfWork : IDisposable
     {
        public ICategoryRepository Category { get; }
-      public  ISP_Call SP_Call { get; }
+      public  ISP_Call SP_Call { get; } 
+
+        void Save();
     }
 }
