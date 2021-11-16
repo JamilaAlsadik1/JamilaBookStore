@@ -1,5 +1,5 @@
 ﻿using Dapper;
-using JamilaBooks.DataAccess.Repositary.IRepositary;
+using JamilaBooks.DataAccess.Repository.IRepository;
 using JamilaBookStore.DataAccess.Data;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JamilaBooks.DataAccess.Repositary
+namespace JamilaBooks.DataAccess.Repository
 {
     class SP_Call : ISP_Call
     {

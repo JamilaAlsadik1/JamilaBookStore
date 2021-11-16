@@ -1,4 +1,4 @@
-﻿using JamilaBooks.DataAccess.Repositary.IRepositary;
+﻿using JamilaBooks.DataAccess.Repository.IRepository;
 using JamilaBooks.Models;
 using JamilaBookStore.DataAccess.Data;
 using System;
@@ -7,20 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JamilaBooks.DataAccess.Repositary
+namespace JamilaBooks.DataAccess.Repository
 {
-    public class CategoryRepositary : Repositary<Category>, ICategoryRepositary
+    public class CategoryRepository : Repository<Category>, ICategoryRepository
     {
         private readonly ApplicationDbContext _db;
-        public CategoryRepositary(ApplicationDbContext db) : base(db)
+        public CategoryRepository(ApplicationDbContext db) : base(db)
         {
             _db = db;
         }
 
-        public object GetAll()
-        {
-            throw new NotImplementedException();
-        }
+ 
 
         public void Ubdate(Category category)
         {

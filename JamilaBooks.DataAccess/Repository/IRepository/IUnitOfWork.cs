@@ -1,14 +1,16 @@
-﻿using System;
+﻿using JamilaBooks.DataAccess.Repository.IRepository;
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JamilaBooks.DataAccess.Repositary.IRepositary
+namespace JamilaBooks.DataAccess.Repository.IRepository
 {
    public interface IUnitOfWork : IDisposable
     {
-       public ICategoryRepositary Category { get; }
+       public ICategoryRepository Category { get; }
       public  ISP_Call SP_Call { get; }
     }
 }

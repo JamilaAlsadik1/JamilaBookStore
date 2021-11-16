@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JamilaBooks.DataAccess.Repositary.IRepositary
+namespace JamilaBooks.DataAccess.Repository.IRepository
 {
    public interface ISP_Call: IDisposable
     {

@@ -1,4 +1,5 @@
-﻿using JamilaBooks.DataAccess.Repositary.IRepositary;
+﻿
+using JamilaBooks.DataAccess.Repository.IRepository;
 using JamilaBookStore.DataAccess.Data;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -8,13 +9,13 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JamilaBooks.DataAccess.Repositary
+namespace JamilaBooks.DataAccess.Repository
 {
-    public class Repositary<T> : IRepository<T> where T : class
+    public class Repository<T> : IRepository<T> where T : class
     {
         private readonly ApplicationDbContext _db;
         internal DbSet<T> dbSet;
-        public Repositary(ApplicationDbContext db)
+        public Repository(ApplicationDbContext db)
         {
             _db = db;
             this.dbSet = _db.Set<T>();

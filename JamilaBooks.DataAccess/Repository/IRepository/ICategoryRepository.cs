@@ -5,11 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JamilaBooks.DataAccess.Repositary.IRepositary
+namespace JamilaBooks.DataAccess.Repository.IRepository
 {
-   public interface ICategoryRepositary
+   public interface ICategoryRepository:IRepository<Category>
     {
         void Ubdate(Category category);
-        object GetAll();
+       
     }
 }

@@ -3,7 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using JamilaBooks.DataAccess.Repositary.IRepositary;
+using JamilaBooks.DataAccess.Repository.IRepository;
+using JamilaBooks.Models;
+
 namespace JamilaBookStore.Areas.Admin.Controllers
 {
     [Area("Admin")]
@@ -13,6 +15,20 @@ namespace JamilaBookStore.Areas.Admin.Controllers
 
         public IActionResult Index()
         {
+            return View();
+        }
+        public IActionResult Upsert(int? id)
+        {
+            Category category = new Category();
+            if (id == null)
+            {
+                return View(category);
+            }
+            category = _unitOfWork.Category.Get(id.GetValueOrDefault());
+            if (category == null)
+            {
+                return NotFound();
+            }
             return View();
         }
         #region API CALLS

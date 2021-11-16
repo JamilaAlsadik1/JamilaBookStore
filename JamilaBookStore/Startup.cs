@@ -1,7 +1,7 @@
 
 using JamilaBookStore.DataAccess.Data;
-using JamilaBooks.DataAccess.Repositary.IRepositary;
-using JamilaBooks.DataAccess.Repositary;
+using JamilaBooks.DataAccess.Repository.IRepository;
+using JamilaBooks.DataAccess.Repository;
 using JamilaBooks.DataAccess;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
