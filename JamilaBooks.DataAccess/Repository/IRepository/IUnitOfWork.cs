@@ -10,8 +10,8 @@ namespace JamilaBooks.DataAccess.Repository.IRepository
 {
    public interface IUnitOfWork : IDisposable
     {
-       public ICategoryRepository Category { get; }
-      public  ISP_Call SP_Call { get; } 
+        ICategoryRepository Category { get; }
+        ISP_Call SP_Call { get; }
 
         void Save();
     }

@@ -11,5 +11,6 @@ namespace JamilaBooks.DataAccess.Repository.IRepository
     {
         void Ubdate(Category category);
         void Remove(Category objFromDb);//I don't know if it's correct to add it
+        void Update(Category category);
     }
 }

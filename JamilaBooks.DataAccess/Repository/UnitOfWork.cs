@@ -9,37 +9,31 @@ using System.Threading.Tasks;
 
 namespace JamilaBooks.DataAccess.Repository
 {
-   public class UnitOfWork:IUnitOfWork
-    {
-        private readonly ApplicationDbContext _db;
-        public UnitOfWork(ApplicationDbContext db)
+   
+        public class UnitOfWork : IUnitOfWork           // make the method public to access the class
         {
-            _db = db;
-            Category = new CategoryRepository(_db);
-            SP_Call= new SP_Call(_db);
+            private readonly ApplicationDbContext _db;          // the using statement
 
-        }
-        public CategoryRepository Category { get; private set; }
-        public ISP_Call SP_Call { get; private set; }
+            public UnitOfWork(ApplicationDbContext db)          // constructor to use DI and inject in to the repositories
+            {
+                _db = db;
+                Category = new CategoryRepository(_db);
+                SP_Call = new SP_Call(_db);
+            }
 
-        ICategoryRepository IUnitOfWork.Category => throw new NotImplementedException();
+            public ICategoryRepository Category { get; private set; }
 
-       
+            public ISP_Call SP_Call { get; private set; }
 
-        ISP_Call IUnitOfWork.SP_Call => throw new NotImplementedException();
+            public void Dispose()
+            {
+                _db.Dispose();
+            }
 
-        public void Dispose()
-        {
-            _db.Dispose();
-        }
-        public void Save()
-        {
-            _db.SaveChanges();
-        }
-
-        void IDisposable.Dispose()
-        {
-            throw new NotImplementedException();
+            public void Save()               // all changes will be saved when the Save method is called at the 'parent' level
+            {
+                _db.SaveChanges();
+            }
         }
     }
-}
+

@@ -13,10 +13,16 @@ namespace JamilaBookStore.Areas.Admin.Controllers
     {
         private readonly IUnitOfWork _unitOfWork;
 
+        public CategoryController(IUnitOfWork unitOfWork)
+        {
+            _unitOfWork = unitOfWork;
+        }
+
         public IActionResult Index()
         {
             return View();
         }
+
         public IActionResult Upsert(int? id)
         {
             Category category = new Category();
@@ -24,53 +30,62 @@ namespace JamilaBookStore.Areas.Admin.Controllers
             {
                 return View(category);
             }
+
             category = _unitOfWork.Category.Get(id.GetValueOrDefault());
             if (category == null)
             {
                 return NotFound();
             }
-            return View();
+            return View(category);
         }
+
+        //use HTTP POST to deine the post-action method
         [HttpPost]
         [ValidateAntiForgeryToken]
+
         public IActionResult Upsert(Category category)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)         // checks all validations in the model (e.g. Name Required) to increase security
             {
-                if(category.Id==0)
+                if (category.Id == 0)
                 {
                     _unitOfWork.Category.Add(category);
-                    _unitOfWork.Save();
                 }
                 else
                 {
-                    _unitOfWork.Category.Ubdate(category);
+                    _unitOfWork.Category.Update(category);
                 }
                 _unitOfWork.Save();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Index));         // to see all the categories
+
             }
             return View(category);
-            
         }
+
+        //API calls here
         #region API CALLS
         [HttpGet]
+
         public IActionResult GetAll()
         {
+            //return NotFound();
             var allObj = _unitOfWork.Category.GetAll();
             return Json(new { data = allObj });
         }
+
         [HttpDelete]
+
         public IActionResult Delete(int id)
         {
             var objFromDb = _unitOfWork.Category.Get(id);
-            if(objFromDb==null)
+            if (objFromDb == null)
             {
-                return Json(new { success = false, meesage="Error while deleting" });
+                return Json(new { success = false, message = "Error while deleting" });
             }
             _unitOfWork.Category.Remove(objFromDb);
             _unitOfWork.Save();
             return Json(new { success = true, message = "Delete successful" });
         }
-        #endregion 
+        #endregion
     }
 }

@@ -28,5 +28,14 @@ namespace JamilaBooks.DataAccess.Repository
                 
             }
         }
+
+        public void Update(CategoryRepository category)
+        {
+            throw new NotImplementedException();
+        }
+        public void Update(Category category)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
