@@ -17,6 +17,11 @@ namespace JamilaBooks.DataAccess.Repository
             _db = db;
         }
 
+        public void Remove(Category objFromDb)
+        {
+            throw new NotImplementedException();
+        }
+
         public void update(CoverType coverType)
         {
             var objFromDb = _db.Categories.FirstOrDefault(s => s.Id == coverType.Id);
@@ -25,6 +30,14 @@ namespace JamilaBooks.DataAccess.Repository
                 objFromDb.Name = coverType.Name;
 
             }
+        }
+        public void Update(CoverTypeRepository coverType)
+        {
+            throw new NotImplementedException();
+        }
+        public void Update(CoverType coverType)
+        {
+            throw new NotImplementedException();
         }
     }
 }

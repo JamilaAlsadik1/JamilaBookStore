@@ -10,5 +10,9 @@ namespace JamilaBooks.DataAccess.Repository.IRepository
     public interface ICoverTypeRepository:IRepository<CoverType>
     {
         void update(CoverType coverType);
+        void Remove(Category objFromDb);//I don't know if it's correct to add it
+       
+        void Update(CoverType coverType);
+        void Remove(CoverType objFromDb);
     }
 }
