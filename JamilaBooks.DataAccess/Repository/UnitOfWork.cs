@@ -28,7 +28,7 @@ namespace JamilaBooks.DataAccess.Repository
         public ICoverTypeRepository CoverType { get; private set; }
         public ISP_Call SP_Call { get; private set; }
 
-  
+        public IProductRepository ProductVM => throw new NotImplementedException();
 
         public void Dispose()
             {
