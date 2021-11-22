@@ -34,13 +34,13 @@ namespace JamilaBookStore.Areas.Admin.Controllers
             {
                 Product = new Product(),
                 //I explicitly convert the type 
-                CategoryList = (IEnumerable<System.Web.Mvc.SelectListItem>)_unitOfWork.Category.GetAll().Select(i => new SelectListItem
+                CategoryList =_unitOfWork.Category.GetAll().Select(i => new SelectListItem
                 {
                     Text = i.Name,
                     Value = i.Id.ToString()
                 }),
 
-                CoverTypeList = (IEnumerable<System.Web.Mvc.SelectListItem>)_unitOfWork.CoverType.GetAll().Select(i => new SelectListItem
+                CoverTypeList = _unitOfWork.CoverType.GetAll().Select(i => new SelectListItem
                 {
                     Text = i.Name,
                     Value = i.Id.ToString()
