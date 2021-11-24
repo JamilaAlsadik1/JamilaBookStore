@@ -318,10 +318,28 @@ Finish at - 10:45 am -  time Taken: 1 hr: 40 mins
 Start at 24-11-2021  9:39
 ---------------------------
 - Adding data again to the category and covertype
+
 - updating database 
+
 -still Product page throw Exception 
 
+- Create an Upsert.cs for Products and modify in Areas > Admin > Views > Product (see Assignment 2 – Files)
 
+-Add a rich textbox to the textarea inside Product with tiny.cloud (create an account) using the API key provided, initialize and add a function to validate input and if empty, display a Sweet Alert.
+
+-Run the application and see what happens when you select ‘Create new Product’.
+
+-Add a new folder and subfolder in wwwroot > images/products
+
+-In the ProductController configure the Product Upsert Post action method.
+
+-Uncomment the method and modify (see Assignment 2 – Files)
+
+-Check for errors, run the application and test.
+
+--------------------------------------------------
+Finish at - 10:45 am -  time Taken: 1 hr: 40 mins
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 
