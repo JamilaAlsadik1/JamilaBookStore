@@ -250,8 +250,70 @@ i add ': IUnitOfWork' this in public class defination. Now i can see category wh
 -------------------------------------
  finish 1:30pm   time Taken:3 hours 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+Start 17 Nov at - 9:20 am - Start part 3.1 - Cover Type CRUD
+-------------------------------------------------------------
+-Create Cover Type CRUD with the exact same methods used for Category CRUD. Add CoverType.cs in the Model's folder, CoverType Model, ID and Name.
 
+-Add CoverType to the Repository. Add CoverTypeRepository Class. Add ICoverTypeRepository Interface.
 
+-Add CoverType to UnitOfWork and IUnitofWork. Push CoverType to the Database. Create migration and update the DB.
+
+-Perform CRUD operations on Cover Type. Add Cover Type to NavBar. Add CoverType Controller with all required Action Methods.
+
+-Cover Type Index View to use DataTables. Cover Type Upsert View takes care of creating and updating CoverType.
+
+-The delete CoverType is done using the API Call.
+-------------------------------------------------
+Finish at 11:50 pm -  time Taken: 1 hr -30 mins
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Start at - 12:55 pm - Part 3.2 Product CRUD
+-------------------------------------------
+-Add a new class (Product) in the .Models project. Add the code to build the blueprint of this class and 
+make sure it’s “public” and that any errors are resolved.
+
+-Add reference to the new Products piece to the database in the ApplicationDbContext.cs file. In the PM Console, run the add-migration command for an 
+‘addProductToDb’ migration and update-database.
+
+-Note the new migration file in the Migrations folder and with this timestamp 20211117182543_AddProductToDb.cs.
+
+-In the SOE review the newly created Products table.
+Update the Product class so Title, ISBN and Author are Required, create a new migration (addValidationToProduct) and update the database.
+
+-Add Product to the Repository. Add IProductRepository Interface. Add ProductRepository Class. Add Product to UnitOfWork and IUnitofWork
+
+-Build and check for errors, resolve and push to GitHub.
+----------------------------------------------
+Finish at 2:22 pm -  time Taken: 1hr : 28 mins.
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Start at - 22 Nov - 9:04 am - Start part 3.2 Product CRUD
+-----------------------------------------------------------
+-Add Product Controller To the Areas > Admin > Controllers to perform the CRUD operations.
+
+-Add the IWebHostEvironment call and its using statement to the Microsoft.AspNetCore.Hosting, note the changes to the public ProductController method.
+
+-Create a ViewModel in the Models project to hold the Product object and select list for Category and CoverType. Modify the ProductVM class so it is public and
+
+-Modify the ProductController so the IActionResult Upsert calls to the ProductVM view model, include the using statements to the ViewModels folder and Microsoft.AspNetCore.Mvc.Rendering.
+
+-I get following error in productController for Upsert method : 0S0266: Can not convert implicitly covert type. line number - 31, 38.
+
+-Comment out the Upsert post method for now, Modify the API call to include the Category and CoverType properites. Add an Index view.
+
+-When i create Upsert.cshtml in Product - Views folder, i get error on line number - 70, 80 - CS1503 -
+
+-Copy the Index.cshtml code from Views/Category and modify to the Product List header, Create New Product and add the following properties – Title / ISBN / Price / Author / Category 
+-and reference a new product.js file.
+-Copy/Paste the category.js and rename to product.js and modify the URL to point to Product. Modify the _Layout.cshtml to add a new link to Product.
+
+-I solve error on Product controller page by install the package Microsoft.AspNetCore.Mvc.ViewFeatures.
+--------------------------------------------------
+Finish at - 10:45 am -  time Taken: 1 hr: 40 mins
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 
