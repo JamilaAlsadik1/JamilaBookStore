@@ -10,17 +10,22 @@ namespace JamilaBooks.DataAccess.Repository.IRepository
 {
     public interface IRepository<T> where T : class
     {
-        T Get(int id);                  // Retrieve a category from the database by id 
-        //List of Categories based on requirements 
-        
+        T Get(int id);
+
         IEnumerable<T> GetAll(
             Expression<Func<T, bool>> filter = null,
             Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null,
-            string includeProperties = null             // useful  for foreign key references
+            string includeProperties = null
             );
-        void Add(T entity); // to add an entry
+
+        T GetFirstOrDefault(
+            Expression<Func<T, bool>> filter = null,
+            string includeProperties = null
+            );
+
+        void Add(T entity);
         void Remove(int id);
-        void RemoveRnge(IEnumerable<T> entity);
-       
+        void Remove(T entity);
+        void RemoveRange(IEnumerable<T> entity);
     }
 }

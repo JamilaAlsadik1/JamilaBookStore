@@ -22,7 +22,7 @@ namespace JamilaBooks.DataAccess.Repository
             throw new NotImplementedException();
         }
 
-        public void update(Product product)
+        public void Update(Product product)
         {
             var objFromDb = _db.Products.FirstOrDefault(s => s.Id == product.Id);
             if (objFromDb != null)  // save changes if not null
@@ -42,13 +42,6 @@ namespace JamilaBooks.DataAccess.Repository
             }
 
         }
-        public void Update(ProductRepository Product)
-        {
-            throw new NotImplementedException();
-        }
-        public void Update(Product Product)
-        {
-            throw new NotImplementedException();
-        }
+     
     }
 }

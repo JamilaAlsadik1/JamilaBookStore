@@ -89,9 +89,6 @@ namespace JamilaBooks.DataAccess.Repository
             dbSet.RemoveRange(entity);
         }
 
-        public void RemoveRnge(IEnumerable<T> entity)
-        {
-            throw new NotImplementedException();
-        }
+       
     }
 }

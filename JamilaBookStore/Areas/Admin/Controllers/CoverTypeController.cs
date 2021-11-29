@@ -25,7 +25,7 @@ namespace JamilaBookStore.Areas.Admin.Controllers
 
         public IActionResult Upsert(int? id)
         {
-           
+
             CoverType coverType = new CoverType();
             if (id == null)
             {
@@ -90,4 +90,3 @@ namespace JamilaBookStore.Areas.Admin.Controllers
         #endregion
     }
 }
-
