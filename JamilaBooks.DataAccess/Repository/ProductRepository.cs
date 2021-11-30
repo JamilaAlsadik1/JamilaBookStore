@@ -17,11 +17,7 @@ namespace JamilaBooks.DataAccess.Repository
             _db = db;
         }
 
-        public void Remove(Category objFromDb)
-        {
-            throw new NotImplementedException();
-        }
-
+       
         public void Update(Product product)
         {
             var objFromDb = _db.Products.FirstOrDefault(s => s.Id == product.Id);

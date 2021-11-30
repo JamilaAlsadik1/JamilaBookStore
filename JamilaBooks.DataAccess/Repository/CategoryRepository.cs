@@ -19,7 +19,7 @@ namespace JamilaBooks.DataAccess.Repository
 
  
 
-        public void Ubdate(Category category)
+        public void Update(Category category)
         {
             var objFromDb = _db.Categories.FirstOrDefault(s => s.Id == category.Id);
             if (objFromDb != null)

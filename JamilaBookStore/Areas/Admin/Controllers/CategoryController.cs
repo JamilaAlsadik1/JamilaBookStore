@@ -52,7 +52,7 @@ namespace JamilaBookStore.Areas.Admin.Controllers
                 }
                 else
                 {
-                    _unitOfWork.Category.Ubdate(category);
+                    _unitOfWork.Category.Update(category);
                 }
                 _unitOfWork.Save();
                 return RedirectToAction(nameof(Index));
