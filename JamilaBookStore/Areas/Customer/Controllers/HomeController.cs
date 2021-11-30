@@ -1,4 +1,6 @@
-﻿using JamilaBookStore.Models;
+﻿using JamilaBooks.DataAccess.Repository.IRepository;
+using JamilaBooks.Models;
+using JamilaBookStore.Models;
 using JamilaBookStore.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -11,18 +13,21 @@ using System.Threading.Tasks;
 namespace JamilaBookStore.Area.Customer.Controllers
 {
     [Area("Customer")]
-    public class HomeController : Controller 
+    public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IUnitOfWork _unifOfWork;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IUnitOfWork unifOfWork)
         {
             _logger = logger;
+            _unifOfWork = unifOfWork;
         }
 
         public IActionResult Index()
         {
-            return View();
+            IEnumerable<Product> productList = _unifOfWork.Product.GetAll(includeProperties: "Category,CoverType");
+            return View(productList);
         }
 
         public IActionResult Privacy()

@@ -37,10 +37,11 @@ namespace JamilaBookStore
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDatabaseDeveloperPageExceptionFilter();
 
-            services.AddDefaultIdentity<IdentityUser>()             // delete options => options.SignIn.RequireConfirmedAccount = true
+            services.AddDefaultIdentity<IdentityUser>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
-            services.AddControllersWithViews();
+            services.AddControllersWithViews().AddRazorRuntimeCompilation();
+            services.AddRazorPages();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -68,15 +69,8 @@ namespace JamilaBookStore
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
-                name: "MyArea",
-                pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
-              // endpoints.MapControllerRoute(
-              //   name: "default",
-                // pattern: "{areas:Customer}/{controller=Home}/{action=Index}/{id?}");
-                endpoints.MapAreaControllerRoute(
-                   name: "defaultArea",
-                    areaName: "Customer",
-                     pattern: "{controller=Home}/{action=Index}/{id?}");
+                    name: "default",
+                    pattern: "{area=Customer}/{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
         }
