@@ -10,87 +10,83 @@ using System.Threading.Tasks;
 
 namespace JamilaBookStore.Areas.Admin.Controllers
 {
-    [Area("Admin")]
-    public class CoverTypeController : Controller
+    namespace YashvisBookStore.Areas.Admin.Controllers
     {
-        private readonly IUnitOfWork _unitOfWork;
-
-        public CoverTypeController(IUnitOfWork unitOfWork)
+        [Area("Admin")]
+        public class CoverTypeController : Controller
         {
-            _unitOfWork = unitOfWork;
-        }
+            private readonly IUnitOfWork _unitOfWork;
 
-        public IActionResult Index()
-        {
-            return View();
-        }
-
-        public IActionResult Upsert(int? id)
-        {
-            CoverType coverType = new CoverType();
-            if (id == null)
+            public CoverTypeController(IUnitOfWork unitOfWork)
             {
-                // this is for create
+                _unitOfWork = unitOfWork;
+            }
+
+            public IActionResult Index()
+            {
+                return View();
+            }
+
+            public IActionResult Upsert(int? id)
+            {
+                CoverType coverType = new CoverType();
+                if (id == null)
+                {
+                    // this is for create
+                    return View(coverType);
+                }
+                // this is for edit
+                coverType = _unitOfWork.CoverType.Get(id.GetValueOrDefault());
+                if (coverType == null)
+                {
+                    return NotFound();
+                }
                 return View(coverType);
             }
-            // this is for edit
-            var parameter = new DynamicParameters();
-            parameter.Add("@Id", id);
-            coverType = _unitOfWork.SP_Call.OneRecord<CoverType>(SD.Proc_CoverType_Get, parameter);
-            if (coverType == null)
+
+            [HttpPost]
+            [ValidateAntiForgeryToken]
+            public IActionResult Upsert(CoverType coverType)
             {
-                return NotFound();
+                if (ModelState.IsValid)
+                {
+
+                    if (coverType.Id == 0)
+                    {
+                        _unitOfWork.CoverType.Add(coverType);
+                    }
+                    else
+                    {
+                        _unitOfWork.CoverType.Update(coverType);
+                    }
+                    _unitOfWork.Save();
+                    return RedirectToAction(nameof(Index));
+                }
+                return View(coverType);
             }
-            return View(coverType);
-        }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public IActionResult Upsert(CoverType coverType)
-        {
-            if (ModelState.IsValid)
+            #region API CALLS
+
+            public IActionResult GetAll()
             {
-                var parameter = new DynamicParameters();
-                parameter.Add("@Name", coverType.Name);
+                var allObj = _unitOfWork.CoverType.GetAll();
+                return Json(new { data = allObj });
+            }
 
-                if (coverType.Id == 0)
+            [HttpDelete]
+            public IActionResult Delete(int id)
+            {
+                var objFromDb = _unitOfWork.CoverType.Get(id);
+                if (objFromDb == null)
                 {
-                    _unitOfWork.SP_Call.Execute(SD.Proc_CoverType_Create, parameter);
+                    return Json(new { success = false, message = "Error while deleting" });
                 }
-                else
-                {
-                    parameter.Add("@Id", coverType.Id);
-                    _unitOfWork.SP_Call.Execute(SD.Proc_CoverType_Update, parameter);
-                }
+                _unitOfWork.CoverType.Remove(objFromDb);
                 _unitOfWork.Save();
-                return RedirectToAction(nameof(Index));
+                return Json(new { success = true, message = "Delete successful" });
             }
-            return View(coverType);
+
+            #endregion
         }
-
-        #region API CALLS
-
-        public IActionResult GetAll()
-        {
-            var allObj = _unitOfWork.SP_Call.List<CoverType>(SD.Proc_CoverType_GetAll, null);
-            return Json(new { data = allObj });
-        }
-
-        [HttpDelete]
-        public IActionResult Delete(int id)
-        {
-            var parameter = new DynamicParameters();
-            parameter.Add("@Id", id);
-            var objFromDb = _unitOfWork.SP_Call.OneRecord<CoverType>(SD.Proc_CoverType_Get, parameter);
-            if (objFromDb == null)
-            {
-                return Json(new { success = false, message = "Error while deleting" });
-            }
-            _unitOfWork.SP_Call.Execute(SD.Proc_CoverType_Delete, parameter);
-            _unitOfWork.Save();
-            return Json(new { success = true, message = "Delete Successful" });
-        }
-
-        #endregion
     }
 }
