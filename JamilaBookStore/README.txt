@@ -341,6 +341,15 @@ Start at 24-11-2021  9:39
 Finish at - 10:45 am -  time Taken: 1 hr: 40 mins
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+Nov 30 - Start at 1 : 05 pm 
+---------------------------------
+-start checking every files from Bulky book with mine and update evry code of controllers, uperst, and repository.
 
+-Also check every commits of the bulky book and verify if there is something missing in my code. but still i am getting error for cover type and product.
+
+-Push changes to the github.
+------------------------------------------------
+Finish at 2:25 pm - total - 1 hr : 20 mins.
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
