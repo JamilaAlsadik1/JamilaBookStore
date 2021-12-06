@@ -351,5 +351,17 @@ Nov 30 - Start at 1 : 05 pm
 ------------------------------------------------
 Finish at 2:25 pm - total - 1 hr : 20 mins.
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+Dec 1 - Start at 9:02 am 
+--------------------------
+-Today again i update every page from bulky book with mine and Add migration NewMigrationProduct and update database.
 
+-try to run application, i miss cover type in Product.js and product upsert sp i update these two files. I download images to add for products. 
+
+-I try to run application but i am getting error for cover types so i make changes again in coverType controller,
+
+-i change back my code as it was before. Now i try to add cover type it is working.
+
+-Update readme and push changes to the github.
+-----------------------------------------------
+Finish at - 10:25 am - Total - 1 hr : 23 mins.
 
